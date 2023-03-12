@@ -26,7 +26,7 @@ const GamePage = () => {
   const [display, setDisplay] = useState("game page");
   const [showModal, setShowModal] = useState(false);
   const [playerEditing, setPlayerEditing] = useState<number>();
-  const [players, setPlayers] = useState<Players | undefined>({
+  const [players, setPlayers] = useState<Players>({
     player1: { name: "john" },
     player2: { name: "tommy" },
     player3: { name: "mary" },
@@ -34,6 +34,14 @@ const GamePage = () => {
   });
   const setPlayer = (player: Players) => {
     setDisplay("pressed");
+  };
+  const changeName = (playerIndex: number, name: string) => {
+    let playerKeys;
+    let playerKey;
+    if (players) {
+      playerKeys = Object.keys(players);
+      playerKey = playerKeys[playerIndex - 1];
+    }
   };
   return (
     <Box style={styles.container}>
